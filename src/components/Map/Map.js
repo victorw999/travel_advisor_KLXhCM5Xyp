@@ -1,3 +1,5 @@
+
+// eslint-disable-next-line
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { Paper, Typography, useMediaQuery } from '@material-ui/core';
@@ -6,9 +8,11 @@ import Rating from '@material-ui/lab/Rating';
 
 import mapStyles from '../../mapStyles';
 import useStyles from './styles.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // test coord
-const testCoord = { lat: 0, lng: 0 }
+const testCoord = { lat: 33.95, lng: -117.58 }
 
 const PlaceMap = ({ place, className, key, classes, matches }) => (
   <div
@@ -35,16 +39,15 @@ const PlaceMap = ({ place, className, key, classes, matches }) => (
 const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherData }) => {
   const matches = useMediaQuery('(min-width:600px)');
   const classes = useStyles();
-  console.log('===> process.env.REACT_APP_GOOGLE_MAP_API_KEY', process.env.REACT_APP_GOOGLE_MAP_API_KEY)
+
   return (
-    <div className={classes.mapContainer}>
+    <div className={classes.mapContainer} style={{ height: '100vh', width: '100%', border: '10px solid organge' }}>
+
       <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
-        // defaultCenter={coords}
-        // center={coords}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
         defaultCenter={testCoord}
         center={testCoord}
-        defaultZoom={14}
+        defaultZoom={10}
         margin={[50, 50, 50, 50]}
         options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyles }}
         onChange={(e) => {
