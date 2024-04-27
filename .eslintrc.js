@@ -23,6 +23,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    "no-unused-vars": ["warn"],
+    "semi": 'warn',
     'import/extensions': 0,
     'react/prop-types': 0,
     'linebreak-style': 0,
@@ -33,7 +35,7 @@ module.exports = {
       250,
     ],
     'no-multiple-empty-lines': [
-      'error',
+      'warn',
       {
         max: 1,
         maxEOF: 1,
