@@ -1,5 +1,7 @@
 /* eslint-disable consistent-return */
 import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const getPlacesData = async (type, sw, ne) => {
   try {
@@ -15,7 +17,7 @@ export const getPlacesData = async (type, sw, ne) => {
         'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
       },
     });
-
+    await console.log('===> data', data)
     return data;
   } catch (error) {
     console.log(error);

@@ -41,7 +41,7 @@ const Map = ({ coords, places, setCoords, setBounds, setChildClicked, weatherDat
   const classes = useStyles();
 
   return (
-    <div className={classes.mapContainer} style={{ height: '100vh', width: '100%', border: '10px solid organge' }}>
+    <div className={classes.mapContainer} style={{ height: '100vh', width: '100%' }}>
 
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
